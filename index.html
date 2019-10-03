@@ -1,0 +1,23 @@
+<html>
+<head>
+</head>
+<body>
+<!-- 1 -->
+<div id="msg"></div>
+
+<script type="text/javascript">
+         var msg = document.getElementById("msg");
+
+        // 2
+         var exampleSocket = new WebSocket("ws://localhost:8080/ws")
+
+         // 3
+         var update = function(){
+           exampleSocket.onmessage = function (event) {
+             msg.textContent += event.data + "\n";
+           }
+         };
+         window.setTimeout(update);
+      </script>
+</body>
+</html>
